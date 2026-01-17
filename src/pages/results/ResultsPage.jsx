@@ -42,8 +42,8 @@ export default function Results() {
             {/* Game Over Title */}
             <div className="mb-7 flex items-center justify-center">
                 <p className="text-6xl font-bold tracking-tight sm:text-8xl uppercase">
-                    <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">Game </span>
-                    <span className="text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]">Over</span>
+                    <span className="text-r font-raider">Game </span>
+                    <span className="text-white/95 font-raider">Over</span>
                 </p>
             </div>
 
@@ -51,30 +51,30 @@ export default function Results() {
             <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full px-4">
 
                 {/* --- RED BOX (Coverage) --- */}
-                <div className="flex-1 bg-black/40 p-10 rounded-xl backdrop-blur-md border-2 border-red-600/50 shadow-[0_0_20px_rgba(220,38,38,0.3)]">
-                    <p className="text-red-500 text-2xl font-bold uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]">
+                <div className="flex-1 bg-black/40 p-10 border-2 border-red-600/50">
+                    <p className="text-r text-2xl font-arame uppercase tracking-wider text-center mb-6 ">
                         Coverage
                     </p>
                     <dl className="flex flex-col gap-2 text-center">
                         {coverage_stats.map((stat) => (
                             <div key={stat.id} className="">
-                                <dt className="text-gray-400 uppercase tracking-widest text-sm mb-1">{stat.name}</dt>
-                                <dd className="text-white text-3xl font-bold">{stat.value}</dd>
+                                <dt className="text-white/80 font-arame uppercase tracking-widest text-sm mt-2 mb-1">{stat.name}</dt>
+                                <dd className="text-white/95 font-arame text-3xl font-bold">{stat.value}</dd>
                             </div>
                         ))}
                     </dl>
                 </div>
 
                 {/* --- GREEN BOX (Cost) --- */}
-                <div className="flex-1 bg-black/40 p-10 rounded-xl backdrop-blur-md border-2 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-                    <p className="text-green-400 text-2xl font-bold uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">
+                <div className="flex-1 bg-black/40 p-10 border-2 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                    <p className="text-green-400 text-2xl font-arame uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">
                         Resources & Cost
                     </p>
                     <dl className="flex flex-col gap-2 text-center">
                         {cost_stats.map((stat) => (
                             <div key={stat.id} className="">
-                                <dt className="text-gray-400 uppercase tracking-widest text-sm mb-1">{stat.name}</dt>
-                                <dd className="text-white text-3xl font-bold">{stat.value}</dd>
+                                <dt className="text-white/80 font-arame uppercase tracking-widest text-sm mt-2 mb-1">{stat.name}</dt>
+                                <dd className="text-white/95 font-arame text-3xl font-bold">{stat.value}</dd>
                             </div>
                         ))}
                     </dl>
