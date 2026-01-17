@@ -51,8 +51,9 @@ export default function Results() {
             <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full px-4">
 
                 {/* --- RED BOX (Coverage) --- */}
-                <div className="flex-1 bg-black/40 p-10 border-2 border-red-600/50">
-                    <p className="text-r text-2xl font-arame uppercase tracking-wider text-center mb-6 ">
+                <div className="flex-1 bg-black/40 p-10 border-2 border-purple/80
+                 hover:border-purple hover:text-purple hover:shadow-[0_0_20px_purple] duration-300 hover:duration-300">
+                    <p className="text-purple/80 text-2xl font-arame uppercase tracking-wider text-center mb-6 ">
                         Coverage
                     </p>
                     <dl className="flex flex-col gap-2 text-center">
@@ -66,8 +67,9 @@ export default function Results() {
                 </div>
 
                 {/* --- GREEN BOX (Cost) --- */}
-                <div className="flex-1 bg-black/40 p-10 border-2 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-                    <p className="text-green-400 text-2xl font-arame uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">
+                <div className="flex-1 bg-black/40 p-10 border-2 border-blue/80 
+                 hover:border-blue hover:text-blue hover:shadow-[0_0_20px_blue] duration-300 hover:duration-300">
+                    <p className="text-blue/80 text-2xl font-arame uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">
                         Resources & Cost
                     </p>
                     <dl className="flex flex-col gap-2 text-center">
