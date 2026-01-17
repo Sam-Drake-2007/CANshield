@@ -28,38 +28,32 @@ export default function HelpPage() {
 
                     <div className="flex items-center  justify-center py-2">
                         <div className="mx-5">
-                        <img className="w-60 h-60">
-                        
-                        </img>
+                        <div className="w-60 h-60 bg-[url('./assets/images/icon-halifax.jpg')] bg-cover border-2 border-r"/>
                         <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Halifax Frigate<br/>
-                        Cost: $450000<br/>
+                        Cost: $450,000<br/>
                         Speed: 30 Knots<br/>
-                        Range: 9500 N-Miles<br/>
+                        Range: 9,500 N-Miles<br/>
                         </p>
                         </div>
 
                         <div className="mx-10 my-2">
-                        <img className="w-60 h-60">
-                        
-                        </img>
+                        <div className="w-60 h-60 bg-[url('./assets/images/icon-dewolf.jpg')] bg-cover border-2 border-r"/>
                         <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Harry DeWolf Patrol Vessel<br/>
-                        Cost: $250000<br/>
+                        Cost: $250,000<br/>
                         Speed: 17 Knots<br/>
-                        Range: 6800 N-Miles<br/>
+                        Range: 6,800 N-Miles<br/>
                         </p>
                         </div>
 
                         <div className="mx-5">
-                        <img className="w-60 h-60">
-                        
-                        </img>
+                        <div className="w-60 h-60 bg-[url('./assets/images/icon-kingston.jpg')] bg-cover border-2 border-r"/>
                         <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Kingston Coastal Defence Vessel<br/>
-                        Cost: $150000<br/>
+                        Cost: $150,000<br/>
                         Speed: 15 Knots<br/>
-                        Range: 5000 N-Miles<br/>
+                        Range: 5,000 N-Miles<br/>
                         </p>
                         </div>
                     
