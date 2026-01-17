@@ -2,6 +2,7 @@ import bgImage from '../../assets/images/main-bg.png';
 import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { MOCK_HISTORY } from './mockDB';
+import {Link} from 'react-router-dom';
 
 export default function Results() {
 
@@ -189,7 +190,7 @@ export default function Results() {
 
                 {/* Play Again Button - Cyan glowing style */}
                 <div className="mt-6 flex items-center justify-center">
-                    <button
+                    <Link to="/"
                         className="
                             w-90 px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
                             bg-cyan-950/80 border-2 border-cyan-400 rounded-md
@@ -197,10 +198,11 @@ export default function Results() {
                             hover:bg-cyan-900 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] hover:border-cyan-300
                             transition-all duration-300
                             hover:cursor-pointer
+                            text-center
                         "
                     >
                         Play Again
-                    </button>
+                    </Link>
                 </div>
             </div>
 
