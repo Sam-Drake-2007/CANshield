@@ -11,6 +11,7 @@ export default function LandingPage() {
                 <Link to="help"className="rounded-full text-[1.2rem] text-white/80 font-arame 
                 px-3.5 py-1 bg-b1/60
                 ring-2 ring-white/25 
+                duration-500
                 hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r">
                     ?
                 </Link>
