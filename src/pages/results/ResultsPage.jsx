@@ -16,63 +16,67 @@ export default function Results() {
 
     return (
         <main 
-            className="min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center"
-            style={{
-                backgroundImage: `url(${bg_url})`,  
-        }}>
+            className="bg-gray-700 min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center bg-blend-overlay"
+            /*style={{
+                backgroundImage: `url(${bg_url})`,
+        }} =========> NOT USING BG FOR NOW, TEMPORARY GRAY COLOR*/
+        >
             
             {/* Game Over Title */}
-            <div className="mt-10 mb-10 flex items-center justify-center">
-                <p className="text-5xl font-semibold tracking-tight text-balancer sm:text-7xl">
-                    <span className="text-white">Game </span>
-                    <span className="text-red-500">Over</span>
+            <div className="mb-7 flex items-center justify-center">
+                <p className="text-6xl font-bold tracking-tight sm:text-8xl uppercase">
+                    <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">Game </span>
+                    <span className="text-red-600 drop-shadow-[0_0_15px_rgba(220,38,38,0.8)]">Over</span>
                 </p>
             </div>
 
             {/* Container for both sections */}
-            <div className="flex gap-16">
-                
-                {/* Coverage Section */}
-                <div className="bg-gray-900/80 p-10 rounded-3xl gap-16 backdrop-blur-sm border border-white/10">
-                    <p className="text-red-500">
+            <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full px-4">
+
+                {/* --- RED BOX (Coverage) --- */}
+                <div className="flex-1 bg-black/40 p-10 rounded-xl backdrop-blur-md border-2 border-red-600/50 shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+                    <p className="text-red-500 text-2xl font-bold uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(220,38,38,0.5)]">
                         Coverage
                     </p>
-                    <div className="">
-                        <dl className="">
-                            {coverage_stats.map((stat) => (
-                                <div key={stat.id} className="">
-                                    <dt className="text-gray-400">{stat.name}</dt>
-                                    <dd className="text-white">{stat.value}</dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </div>
+                    <dl className="flex flex-col gap-2 text-center">
+                        {coverage_stats.map((stat) => (
+                            <div key={stat.id} className="">
+                                <dt className="text-gray-400 uppercase tracking-widest text-sm mb-1">{stat.name}</dt>
+                                <dd className="text-white text-3xl font-bold">{stat.value}</dd>
+                            </div>
+                        ))}
+                    </dl>
                 </div>
 
-                {/* Cost Section */}
-                <div className="bg-gray-900/80 p-10 rounded-3xl gap-16 backdrop-blur-sm border border-white/10">
-                    <p className="text-green-500">
-                        Cost
+                {/* --- GREEN BOX (Cost) --- */}
+                <div className="flex-1 bg-black/40 p-10 rounded-xl backdrop-blur-md border-2 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+                    <p className="text-green-400 text-2xl font-bold uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">
+                        Resources & Cost
                     </p>
-                    <div className="">
-                        <dl className="">
-                            {cost_stats.map((stat) => (
-                                <div key={stat.id} className="">
-                                    <dt className="text-gray-400">{stat.name}</dt>
-                                    <dd className="text-white">{stat.value}</dd>
-                                </div>
-                            ))}
-                        </dl>
-                    </div>
+                    <dl className="flex flex-col gap-2 text-center">
+                        {cost_stats.map((stat) => (
+                            <div key={stat.id} className="">
+                                <dt className="text-gray-400 uppercase tracking-widest text-sm mb-1">{stat.name}</dt>
+                                <dd className="text-white text-3xl font-bold">{stat.value}</dd>
+                            </div>
+                        ))}
+                    </dl>
                 </div>
             </div>
             
-            {/* Compare Button */}
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            {/* Compare Button - Cyan glowing style */}
+            <div className="mt-6 flex items-center justify-center">
                 <button
-                    className="rounded-md bg-red-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    className="
+                        px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
+                        bg-cyan-950/80 border-2 border-cyan-400 rounded-md
+                        shadow-[0_0_15px_rgba(34,211,238,0.4)]
+                        hover:bg-cyan-900 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] hover:border-cyan-300
+                        transition-all duration-300
+                        hover:cursor-pointer
+                    "
                 >
-                    Compare to Previous Runs
+                    Compare Previous Runs
                 </button>
             </div>
 
