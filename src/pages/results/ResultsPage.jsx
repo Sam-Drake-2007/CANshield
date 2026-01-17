@@ -1,3 +1,5 @@
+import bgImage from '../../assets/images/main-bg.png';
+
 export default function Results() {
 
     const bg_url = "https://images.unsplash.com/photo-1651771529172-0d45a1455598?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -17,9 +19,9 @@ export default function Results() {
     return (
         <main 
             className="bg-gray-700 min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center bg-blend-overlay"
-            /*style={{
-                backgroundImage: `url(${bg_url})`,
-        }} =========> NOT USING BG FOR NOW, TEMPORARY GRAY COLOR*/
+            style={{
+            backgroundImage: `url(${bgImage})`,        
+}}
         >
             
             {/* Game Over Title */}
