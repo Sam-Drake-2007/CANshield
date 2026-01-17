@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'designer';
+    src: url('./assets/fonts/Designer.otf') format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'caviar';
+    src: url('./assets/fonts/CaviarDreams.ttf') format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'caviarBold';
+    src: url('./assets/fonts/CaviarDreams_Bold.ttf') format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-caviar {
+    font-family: 'caviar', sans-serif;
+}
+
+.font-caviar-bold {
+    font-family: 'caviarBold', sans-serif;
+}
+
+
+
+.font-designer {
+    font-family: 'designer', sans-serif;
+}
