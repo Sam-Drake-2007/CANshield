@@ -1,6 +1,7 @@
 import background from "../../assets/images/main-bg.png";
 import {LiaCanadianMapleLeaf} from "react-icons/lia";
 import {Link} from 'react-router-dom';
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 export default function HelpPage() {
     return (
         <main  className="bg-gray-700 min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center bg-blend-overlay"
@@ -21,9 +22,9 @@ export default function HelpPage() {
                     </h2>
 
                     <p className="text-white/80 font-arame text-[0.9rem] tracking-wider leading-8">
-                    CANShield simulates real-time strategy (RTS) of the Canadian Artic Regions' naval passageways. 
+                    CANShield simulates real-time strategy (RTS) of the Canadian Arctic Regions' naval passageways. 
                     Control your expenses and manage the deployment of 3 different classes of Canadian naval ships. 
-                    Precise timing in deployments as well as choice of naval ship classes are key to keeping consistent coverage and reducing costs.
+                    Precise timing in deployments, as well as fleet decisions are key to keeping consistent coverage and reducing costs.
                     </p>
 
                     <div className="flex flex-wrap items-start justify-center py-6 gap-8">
@@ -71,8 +72,9 @@ export default function HelpPage() {
                         px-6 py-2.5 bg-b1/60
                         ring-2 ring-white/25 
                         duration-500
+                        flex items-center justify-center
                         hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r">
-                        Ready
+                        <IoMdCheckmarkCircleOutline className="mr-2"/>Ready
                         </Link>           
                     </div>
 
