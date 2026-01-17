@@ -1,36 +1,23 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'designer';
-    src: url('./assets/fonts/Designer.otf') format("opentype");
+    font-family: 'aqua';
+    src: url('./assets/fonts/aqua.ttf') format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'caviar';
-    src: url('./assets/fonts/CaviarDreams.ttf') format("truetype");
-    font-weight: 400;
-    font-style: normal;
+.font-aqua {
+    font-family: 'aqua', sans-serif;
 }
 
-@font-face {
-    font-family: 'caviarBold';
-    src: url('./assets/fonts/CaviarDreams_Bold.ttf') format("truetype");
-    font-weight: 400;
-    font-style: normal;
-}
-
-.font-caviar {
-    font-family: 'caviar', sans-serif;
-}
-
-.font-caviar-bold {
-    font-family: 'caviarBold', sans-serif;
-}
-
-
-
-.font-designer {
-    font-family: 'designer', sans-serif;
+@theme {
+    --color-r: #fb2c36;
+    --color-rl: #fb414a;
+    --color-r2: #fc6b72;
+    --color-g: #A6A6A6;
+    --color-g1: #737373;
+    --color-g2: #404040;
+    --color-b: #0D0D0D;
+    --color-b1: #262626;
 }
