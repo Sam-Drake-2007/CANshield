@@ -1,3 +1,5 @@
+import bgImage from './canshield/src/assets/canadian-arctic.jpg';
+
 export default function Results() {
 
     const coverage_stats = [
@@ -13,7 +15,7 @@ export default function Results() {
     ];
 
     return (
-        <main className="bg-gray-900 py-24 sm:py-32 min-h-screen">
+        <main className="bg-[url('/canadian-arctic.jpg')] bg-cover bg-center bg-no-repeat bg-gray-900/80 py-24 sm:py-32 min-h-screen">
             
             {/* 1. Centered Game Over Text */}
             <p className="">
