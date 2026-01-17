@@ -8,7 +8,7 @@ export default function HelpPage() {
                     backgroundImage: `url(${background})`,}}>
 
             {/* WRITE THE CSS DIRECTLY IN the 'className' attribute, look up the equivalent CSS style on TailwindCSS' site if needed */}
-            <div className="bg-black/40 h-175 w-250">
+            <div className="bg-black/60 w-full max-w-6xl h-auto rounded-xl backdrop-blur-sm mx-4">
 
                 <div className="px-10 py-5">
 
@@ -26,7 +26,7 @@ export default function HelpPage() {
                     Precise timing in deployments as well as choice of naval ship classes are key to keeping consistent coverage and reducing costs.
                     </p>
 
-                    <div className="flex items-center  justify-center py-2">
+                    <div className="flex flex-wrap items-start justify-center py-6 gap-8">
                         <div className="mx-5">
                         <div className="w-60 h-60 bg-[url('./assets/images/icon-halifax.jpg')] bg-cover border-2 border-r"/>
                         <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
@@ -70,6 +70,7 @@ export default function HelpPage() {
                         <Link to="/"className="text-[1.2rem] text-white/80 font-arame
                         px-6 py-2.5 bg-b1/60
                         ring-2 ring-white/25 
+                        duration-500
                         hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r">
                         Ready
                         </Link>           

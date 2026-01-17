@@ -7,10 +7,11 @@ export default function LandingPage() {
                     style={{
                     backgroundImage: `url(${background})`,}}>
 
-            <div className="absolute inset-x-362 top-4 z-50">
+            <div className="absolute right-4 top-4 z-50">
                 <Link to="help"className="rounded-full text-[1.2rem] text-white/80 font-arame 
                 px-3.5 py-1 bg-b1/60
                 ring-2 ring-white/25 
+                duration-500
                 hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r">
                     ?
                 </Link>
@@ -31,7 +32,7 @@ export default function LandingPage() {
 
                     <Link to="/map"className="text-[1.8rem] text-white/80 font-arame
                     px-6 py-2.5 bg-b1/60
-                    ring-2 ring-white/25 
+                    ring-2 ring-white/25 duration-500
                     hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r">
                     Defend
                     </Link>
