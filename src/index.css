@@ -1,19 +1,30 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'aqua';
-    src: url('./assets/fonts/aqua.ttf') format("truetype");
+    font-family: 'arame';
+    src: url('./assets/fonts/Arame-Mono.ttf') format("truetype");
     font-weight: 400;
     font-style: normal;
 }
 
-.font-aqua {
-    font-family: 'aqua', sans-serif;
+.font-arame {
+    font-family: 'arame', sans-serif;
+}
+
+@font-face {
+    font-family: 'raider';
+    src: url('./assets/fonts/raidercrusaderstraight.ttf') format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-raider {
+    font-family: 'raider', sans-serif;
 }
 
 @theme {
     --color-r: #fb2c36;
-    --color-rl: #fb414a;
+    --color-r1: #fb414a;
     --color-r2: #fc6b72;
     --color-g: #A6A6A6;
     --color-g1: #737373;

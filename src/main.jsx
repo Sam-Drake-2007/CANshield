@@ -6,6 +6,7 @@ import LandingPage from './pages/landing/LandingPage.jsx'
 import Error404Page from './pages/Error404Page.jsx'
 import Map from './pages/map/MapPage.jsx'
 import Results from './pages/results/ResultsPage.jsx'
+import Help from './pages/help/HelpPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/results',
     element: <Results />,
+  },
+  {
+    path: '/help',
+    element: <Help />,
   }
 ]);
 
