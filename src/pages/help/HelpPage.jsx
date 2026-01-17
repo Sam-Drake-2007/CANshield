@@ -8,7 +8,7 @@ export default function HelpPage() {
                     backgroundImage: `url(${background})`,}}>
 
             {/* WRITE THE CSS DIRECTLY IN the 'className' attribute, look up the equivalent CSS style on TailwindCSS' site if needed */}
-            <div className="bg-black/40 h-170 w-250">
+            <div className="bg-black/40 h-175 w-250">
 
                 <div className="px-10 py-5">
 
@@ -26,12 +26,12 @@ export default function HelpPage() {
                     Precise timing in deployments as well as choice of naval ship classes are key to keeping consistent coverage and reducing costs.
                     </p>
 
-                    <div className="flex items-center py-2">
-                        <div>
+                    <div className="flex items-center  justify-center py-2">
+                        <div className="mx-5">
                         <img className="w-60 h-60">
                         
                         </img>
-                        <p className="text-white/80 font-arame text-[0.7rem] tracking-wider leading-8">
+                        <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Halifax Frigate<br/>
                         Cost: $450000<br/>
                         Speed: 30 Knots<br/>
@@ -39,11 +39,11 @@ export default function HelpPage() {
                         </p>
                         </div>
 
-                        <div>
+                        <div className="mx-10 my-2">
                         <img className="w-60 h-60">
                         
                         </img>
-                        <p className="text-white/80 font-arame text-[0.7rem] tracking-wider leading-8">
+                        <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Harry DeWolf Patrol Vessel<br/>
                         Cost: $250000<br/>
                         Speed: 17 Knots<br/>
@@ -51,13 +51,13 @@ export default function HelpPage() {
                         </p>
                         </div>
 
-                        <div>
+                        <div className="mx-5">
                         <img className="w-60 h-60">
                         
                         </img>
-                        <p className="text-white/80 font-arame text-[0.7rem] tracking-wider leading-8">
+                        <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Kingston Coastal Defence Vessel<br/>
-                        Cost: 150000$<br/>
+                        Cost: $150000<br/>
                         Speed: 15 Knots<br/>
                         Range: 5000 N-Miles<br/>
                         </p>
@@ -65,14 +65,14 @@ export default function HelpPage() {
                     
                     </div>
 
-                    <p className="text-r font-arame text-[0.7rem] tracking-wider leading-8">
+                    <p className="text-r font-arame text-[0.8rem] tracking-wider text-center leading-8">
                     *Ship statistics are for simulation purposes only. Data may not be accurate.
                     </p>
 
                 </div>
 
             </div>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-5 flex items-center justify-center gap-x-6">
                         <Link to="/"className="text-[1.2rem] text-white/80 font-arame
                         px-6 py-2.5 bg-b1/60
                         ring-2 ring-white/25 
