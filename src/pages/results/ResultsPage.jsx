@@ -89,7 +89,7 @@ export default function Results() {
                     <button
                         onClick={() => setIsModalOpen(true)}
                         className="
-                            w-90 px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
+                            w-96 px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
                             bg-cyan-950/80 border-2 border-cyan-400 rounded-md
                             shadow-[0_0_15px_rgba(34,211,238,0.4)]
                             hover:bg-cyan-900 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] hover:border-cyan-300
@@ -105,7 +105,7 @@ export default function Results() {
                 {isModalOpen && (
 
                     // Behind the popup
-                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setIsModalOpen(false)}>
                         
                         {/* Popup Window */}
                         <div className="relative bg-gray-900 border-2 border-cyan-500 w-full max-w-4xl rounded-2xl p-8 shadow-[0_0_50px_rgba(34,211,238,0.2)]">
@@ -192,7 +192,7 @@ export default function Results() {
                 <div className="mt-6 flex items-center justify-center">
                     <Link to="/"
                         className="
-                            w-90 px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
+                            w-96 px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
                             bg-cyan-950/80 border-2 border-cyan-400 rounded-md
                             shadow-[0_0_15px_rgba(34,211,238,0.4)]
                             hover:bg-cyan-900 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] hover:border-cyan-300
