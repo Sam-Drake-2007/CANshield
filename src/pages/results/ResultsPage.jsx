@@ -1,6 +1,21 @@
 import bgImage from '../../assets/images/main-bg.png';
+import { useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { MOCK_HISTORY } from './mockDB';
 
 export default function Results() {
+
+    {/* Defining Constants */}
+
+    const [isModalOpen, setIsModalOpen] = useState(false); // Hiding popup modal until triggered
+
+    const graphData = MOCK_HISTORY.map(run => ({
+        date: new Date(run.createdAt).toLocaleDateString(), // Output format: MM/DD/YYYY
+        average_coverage_percent: run.avgCoveragePercent,
+        total_cost: run.totalCost / 1000, // Converting to thousands for better readability
+    }));
+
+    console.log("[DEBUG] Graph Data:", graphData);
 
     const coverage_stats = [
         { id: 1, name: 'Average Coverage', value: '73%' },
@@ -18,9 +33,8 @@ export default function Results() {
         <main 
             className="bg-gray-700 min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center bg-blend-overlay"
             style={{
-            backgroundImage: `url(${bgImage})`,        
-}}
-        >
+            backgroundImage: `url(${bgImage})`
+            }}>
             
             {/* Game Over Title */}
             <div className="mb-7 flex items-center justify-center">
