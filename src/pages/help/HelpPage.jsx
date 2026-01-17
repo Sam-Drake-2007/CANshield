@@ -70,6 +70,7 @@ export default function HelpPage() {
                         <Link to="/"className="text-[1.2rem] text-white/80 font-arame
                         px-6 py-2.5 bg-b1/60
                         ring-2 ring-white/25 
+                        duration-500
                         hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r">
                         Ready
                         </Link>           
