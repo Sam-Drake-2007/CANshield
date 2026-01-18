@@ -9,6 +9,8 @@ import Results from './pages/results/ResultsPage.jsx'
 import Help from './pages/help/HelpPage.jsx'
 import favicon from './assets/images/favicon.png'
 
+import SidebarTest from './sidebartest.jsx'
+
 const link = document.querySelector("link[rel~='icon']");
 if (link) {
     link.href = favicon;}
@@ -30,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: '/help',
     element: <Help />,
+  },
+  {
+    path: '/sidetest',
+    element: <SidebarTest />,
   }
 ]);
 
