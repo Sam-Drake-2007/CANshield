@@ -42,6 +42,7 @@ export default function HelpPage() {
                         </p>
                         </div>
 
+                        {/*divisions of each section of the naval ships*/}
                         <div className="mx-10 my-2">
                         <div className="w-60 h-60 bg-[url('./assets/images/icon-dewolf.jpg')] bg-cover border-2 border-r"/>
                         <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
