@@ -1,6 +1,6 @@
 import booleanPointInPolygon from "@turf/boolean-point-in-polygon";
 import { point } from "@turf/helpers";
-import arcticLandUrl from "@/assets/geojsons/arctic_land_simplified.geojson?url";
+import arcticLandUrl from "../assets/geojsons/arctic_land_simplified.geojson?url";
 
 export function gridCellToLatLng(bounds, rows, cols, r, c) {
   const [[latMin, lngMin], [latMax, lngMax]] = bounds;

@@ -4,12 +4,10 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LandingPage from './pages/landing/LandingPage.jsx'
 import Error404Page from './pages/error/Error404Page.jsx'
-import Map from './pages/map/MapPage.jsx'
+import MapPage from './pages/map/MapPage.jsx'
 import Results from './pages/results/ResultsPage.jsx'
 import Help from './pages/help/HelpPage.jsx'
 import favicon from './assets/images/favicon.png'
-
-import SidebarTest from './pages/map/sidebartest.jsx'
 
 const link = document.querySelector("link[rel~='icon']");
 if (link) {
@@ -23,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/map',
-    element: <Map />
+    element: <MapPage />
   },
   {
     path: '/results',
@@ -32,10 +30,6 @@ const router = createBrowserRouter([
   {
     path: '/help',
     element: <Help />,
-  },
-  {
-    path: '/sidetest',
-    element: <SidebarTest />,
   }
 ]);
 

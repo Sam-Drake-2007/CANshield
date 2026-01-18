@@ -24,7 +24,7 @@ function QtyStepper({ value, onChange, disabled }) {
   );
 }
 
-export function ArcticSidebar({
+export function Sidebar({
   boats,
   previousOperations,
 
