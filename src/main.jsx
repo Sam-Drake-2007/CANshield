@@ -8,6 +8,7 @@ import MapPage from './pages/map/MapPage.jsx'
 import Results from './pages/results/ResultsPage.jsx'
 import Help from './pages/help/HelpPage.jsx'
 import favicon from './assets/images/favicon.png'
+import ContextProvider from './contexts/ContextProvider.jsx'
 
 const link = document.querySelector("link[rel~='icon']");
 if (link) {
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
   </StrictMode>,
 )
