@@ -100,6 +100,7 @@ To run CANshield locally, follow these steps:
 We are hoping to expand on the app to allow for more repeatability and usage of our simulator with the goal of releasing an open beta.
 
 **Roadmap:**
+* [ ] Fix all bugs and improve curreny features
 * [ ] Add different strategic locations around the Arctic passage.
 * [ ] Implement AI-recommended paths and strategic insights.
 * [ ] Create more balanced and challenging simulation options.
