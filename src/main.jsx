@@ -7,6 +7,11 @@ import Error404Page from './pages/error/Error404Page.jsx'
 import Map from './pages/map/MapPage.jsx'
 import Results from './pages/results/ResultsPage.jsx'
 import Help from './pages/help/HelpPage.jsx'
+import favicon from './assets/images/favicon.png'
+
+const link = document.querySelector("link[rel~='icon']");
+if (link) {
+    link.href = favicon;}
 
 const router = createBrowserRouter([
   {
