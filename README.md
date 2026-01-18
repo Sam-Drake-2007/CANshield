@@ -5,6 +5,8 @@
 ## 📸 Screenshots & Demo
 ![Landing Page](src/assets/screenshots/CANshield-landing.png)
 ![Help Page](src/assets/screenshots/CANshield-help.png)
+![Monitoring Page](src/assets/screenshots/CANshield-draw.png)
+![Planning Page](src/assets/screenshots/CANshield-action.png)
 ![Results Page](src/assets/screenshots/CANshield-results.png)
 ![Stats Widget](src/assets/screenshots/CANshield-stats.png)
 ![Error 404](src/assets/screenshots/CANshield-error404.png)
