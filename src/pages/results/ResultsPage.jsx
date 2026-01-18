@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { MOCK_HISTORY } from './mockDB';
 import {Link} from 'react-router-dom';
+import { FaPlay } from "react-icons/fa";
+import { MdHistory } from "react-icons/md";
+import { IoCloseCircle } from "react-icons/io5";
 
 export default function Results() {
 
@@ -51,8 +54,9 @@ export default function Results() {
             <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full px-4">
 
                 {/* --- RED BOX (Coverage) --- */}
-                <div className="flex-1 bg-black/40 p-10 border-2 border-red-600/50">
-                    <p className="text-r text-2xl font-arame uppercase tracking-wider text-center mb-6 ">
+                <div className="flex-1 bg-black/40 p-10 border-2 border-purple/80
+                 hover:border-purple hover:text-purple hover:shadow-[0_0_20px_purple] duration-300 hover:duration-300">
+                    <p className="text-purple/80 text-2xl font-arame uppercase tracking-wider text-center mb-6 ">
                         Coverage
                     </p>
                     <dl className="flex flex-col gap-2 text-center">
@@ -66,8 +70,9 @@ export default function Results() {
                 </div>
 
                 {/* --- GREEN BOX (Cost) --- */}
-                <div className="flex-1 bg-black/40 p-10 border-2 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.3)]">
-                    <p className="text-green-400 text-2xl font-arame uppercase tracking-wider text-center mb-6 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]">
+                <div className="flex-1 bg-black/40 p-10 border-2 border-green/80 
+                 hover:border-green hover:text-green hover:shadow-[0_0_20px_green] duration-300 hover:duration-300">
+                    <p className="text-green/80 text-2xl font-arame uppercase tracking-wider text-center mb-6">
                         Resources & Cost
                     </p>
                     <dl className="flex flex-col gap-2 text-center">
@@ -89,15 +94,15 @@ export default function Results() {
                     <button
                         onClick={() => setIsModalOpen(true)}
                         className="
-                            w-96 px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
-                            bg-cyan-950/80 border-2 border-cyan-400 rounded-md
-                            shadow-[0_0_15px_rgba(34,211,238,0.4)]
-                            hover:bg-cyan-900 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] hover:border-cyan-300
-                            transition-all duration-300
-                            hover:cursor-pointer
+                            w-60 px-8 py-4 text-[1.2rem] text-white/80 font-arame
+                        bg-b1/60
+                        ring-2 ring-white/25 
+                        duration-500
+                        flex items-center text-center justify-center
+                        hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r
                         "
                     >
-                        Compare Previous Runs
+                        <MdHistory className="mr-2"/>History
                     </button>
                 </div>
 
@@ -108,18 +113,19 @@ export default function Results() {
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setIsModalOpen(false)}>
                         
                         {/* Popup Window */}
-                        <div className="relative bg-gray-900 border-2 border-cyan-500 w-full max-w-4xl rounded-2xl p-8 shadow-[0_0_50px_rgba(34,211,238,0.2)]">
+                        <div className="relative bg-black/60 border-2 border-white/80 w-full max-w-4xl p-8 shadow-[0_0_50px_rgba(34,211,238,0.2)]">
                             
                             {/* Close Button (Top Right) */}
                             <button 
                                 onClick={() => setIsModalOpen(false)}
-                                className="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl transition-colors hover:cursor-pointer"
+                                className="absolute top-4 right-4 text-white/80 hover:text-g/80 text-3xl transition-colors 
+                                hover:cursor-pointer"
                             >
-                                X
+                                <IoCloseCircle />
                             </button>
 
                             {/* Modal Title */}
-                            <h2 className="text-cyan-400 text-3xl font-bold uppercase mb-8 text-center tracking-widest drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+                            <h2 className="text-white/80 text-3xl font-arame uppercase mb-8 text-center tracking-widest drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
                                 Mission History Analysis
                             </h2>
 
@@ -133,22 +139,21 @@ export default function Results() {
                                         {/* Axes */}
                                         <XAxis 
                                             dataKey="date" 
-                                            stroke="#9CA3AF" 
-                                            tick={{ fill: '#9CA3AF', dy: 10 }}
+                                            stroke="#A6A6A6" 
+                                            tick={{ fill: '#A6A6A6', dy: 10 }}
                                         />
                                         <YAxis
                                             width={100} 
-                                            stroke="#9CA3AF" 
-                                            tick={{ fill: '#9CA3AF', dx: -10 }}
+                                            stroke="#A6A6A6" 
+                                            tick={{ fill: '#A6A6A6', dx: -10 }}
                                             tickFormatter={(value) => `${((value / max_cost) * 100).toFixed(0)}% | ${value}`}
                                         />
                                         
                                         {/* Tooltip (Hover info) */}
                                         <Tooltip 
-                                            contentStyle={{ backgroundColor: '#111827', border: '1px solid #06b6d4', borderRadius: '8px' }} 
-                                            itemStyle={{ color: '#fff' }}   
-                                            labelStyle={{ color: '#fff' }}
-                                            
+                                            contentStyle={{ backgroundColor: '#262626', border: '1px solid #A6A6A6'}} 
+                                            itemStyle={{ color: '#fff', fontFamily: 'arame' }}   
+                                            labelStyle={{ color: '#fff', fontFamily: 'arame'}}
                                             formatter={(value, name) => {
                                                 if (name === "Cost") return [`$${(value * 1000).toLocaleString()}`, "Total Cost"];
                                                 if (name === "Coverage %") {
@@ -161,24 +166,24 @@ export default function Results() {
                                         />
                                         
                                         {/* Legend */}
-                                        <Legend wrapperStyle={{ paddingTop: '20px' }}/>
+                                        <Legend wrapperStyle={{ paddingTop: '20px', fontFamily: "arame"}}/>
 
                                         {/* Lines */}
                                         <Line 
                                             type="monotone" 
                                             dataKey="scaled_coverage"
-                                            stroke="#ef4444" 
+                                            stroke="#AD8CFF"
                                             strokeWidth={3} 
-                                            dot={{ r: 4, fill: '#ef4444' }}
+                                            dot={{ r: 4, fill: '#AD8CFF' }}
                                             activeDot={{ r: 8 }} 
                                             name="Coverage %" 
                                         />
                                         <Line 
                                             type="monotone" 
                                             dataKey="total_cost" 
-                                            stroke="#22c55e" 
+                                            stroke="#7AEA69" 
                                             strokeWidth={3} 
-                                            dot={{ r: 4, fill: '#22c55e' }}
+                                            dot={{ r: 4, fill: '#7AEA69' }}
                                             name="Cost" 
                                         />
                                     </LineChart>
@@ -190,20 +195,20 @@ export default function Results() {
 
 
                 {/* Play Again Button - Cyan glowing style */}
-                <div className="mt-6 flex items-center justify-center">
+                <div className="mt-6 flex items-center text-center justify-center">
                     <Link to="/"
                         className="
-                            w-96 px-8 py-4 text-lg font-bold uppercase tracking-widest text-white
-                            bg-cyan-950/80 border-2 border-cyan-400 rounded-md
-                            shadow-[0_0_15px_rgba(34,211,238,0.4)]
-                            hover:bg-cyan-900 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] hover:border-cyan-300
-                            transition-all duration-300
-                            hover:cursor-pointer
-                            text-center
+                            w-60 px-8 py-4 text-[1.2rem] text-white/80 font-arame
+                        bg-b1/60
+                        ring-2 ring-white/25 
+                        duration-500
+                        flex items-center justify-center
+                        hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r
                         "
                     >
-                        Play Again
+                        <FaPlay className="mr-4"/>Play Again                                    
                     </Link>
+
                 </div>
             </div>
 
