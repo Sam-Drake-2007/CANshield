@@ -560,8 +560,8 @@ export default function MapPage() {
                 icon={BOAT_ICONS[s.boatId] ?? BOAT_ICONS.halifax}
               >
                 <Tooltip permanent direction="top" offset={[0, -18]} opacity={1}>
-                  <div style={{ lineHeight: 1.1 }}>
-                    <div style={{ fontWeight: 700 }}>{label}</div>
+                  <div className="font-arame" style={{ lineHeight: 1.1 }}>
+                    <div style={{ fontWeight: 700}}>{label}</div>
                     <div style={{ fontSize: 11, opacity: 0.85 }}>{boatName}</div>
                   </div>
                 </Tooltip>
