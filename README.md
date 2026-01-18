@@ -18,7 +18,28 @@ Because this is designed like a Real-Time Strategy (RTS) video game, we were ins
 
 "With great power, comes great responsibility." That's what we wanted users to feel. We envision players working hard to keep the arctic maritime passageways protected.
 
-## 🎮 What it does
+## ❄️ Defend the Canadian Arctic
+
+Strategically place your navy ships to patrol the most amount of area possible.
+
+Choose between **three** different vessels
+
+### Halifax Class Frigade
+* Cost: $450,000
+* Speed: 30 Knots
+* Range: 9,500 N-Miles
+
+### Harry DeWolf Patrol Vessel
+* Cost: $250,000
+* Speed: 17 Knots
+* Range: 6,800 N-Miles
+
+### Kingston Coastal Defence Vessel
+* Cost: $150,000
+* Speed: 15 Knots
+* Range: 5,000 N-Miles
+
+Choosing smart patrol routes and optimizing ressource management is key to a successful operation. Good luck officer!
 ## ⚙️ How we built it
 
 ### Tech Stack
