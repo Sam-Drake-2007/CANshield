@@ -89,7 +89,7 @@ export default function Results() {
             {/* Container for both bottom buttons */}
             <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full px-4 justify-center items-center mx-auto">
 
-                {/* Compare Button - Cyan glowing style */}
+                {/* Compare Button */}
                 <div className="mt-6 flex items-center justify-center">
                     <button
                         onClick={() => setIsModalOpen(true)}
@@ -194,7 +194,7 @@ export default function Results() {
                 )}
 
 
-                {/* Play Again Button - Cyan glowing style */}
+                {/* Play Again Button*/}
                 <div className="mt-6 flex items-center text-center justify-center">
                     <Link to="/"
                         className="
