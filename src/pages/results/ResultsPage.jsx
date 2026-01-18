@@ -31,8 +31,8 @@ export default function Results() {
 
     const cost_stats = [
         { id: 4, name: 'Total Money Spent', value: '$1,000,000' }, 
-        { id: 5, name: 'Refuel Counts', value: '15' },
-        { id: 6, name: 'Ships Purchased', value: '3' },
+        { id: 5, name: 'Ships Purchased', value: '5' },
+        { id: 6, name: 'Favorite Ship', value: 'Kingston' },
     ];
 
     return (
@@ -73,7 +73,7 @@ export default function Results() {
                 <div className="flex-1 bg-black/50 p-10 border-2 border-green/80 
                  hover:border-green hover:text-green hover:shadow-[0_0_20px_green] duration-300 hover:duration-300">
                     <p className="text-green/80 text-2xl font-arame uppercase tracking-wider text-center mb-6">
-                        Resources & Cost
+                        Cost & Resources
                     </p>
                     <dl className="flex flex-col gap-2 text-center">
                         {cost_stats.map((stat) => (
@@ -155,7 +155,7 @@ export default function Results() {
                                             itemStyle={{ color: '#fff', fontFamily: 'arame' }}   
                                             labelStyle={{ color: '#fff', fontFamily: 'arame'}}
                                             formatter={(value, name) => {
-                                                if (name === "Cost") return [`$${(value * 1000).toLocaleString()}`, "Total Cost"];
+                                                if (name === "Cost & Resources") return [`$${(value * 1000).toLocaleString()}`, "Total Cost"];
                                                 if (name === "Coverage %") {
                                                     const real_percent = ((value / max_cost) * 100).toFixed(0);
                                                     return [`${real_percent}%`, "Coverage"];
@@ -184,7 +184,7 @@ export default function Results() {
                                             stroke="#7AEA69" 
                                             strokeWidth={3} 
                                             dot={{ r: 4, fill: '#7AEA69' }}
-                                            name="Cost" 
+                                            name="Cost & Resources" 
                                         />
                                     </LineChart>
                                 </ResponsiveContainer>
