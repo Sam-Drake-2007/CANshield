@@ -25,14 +25,16 @@ export default function Results() {
 
     const coverage_stats = [
         { id: 1, name: 'Average Coverage', value: '73%' },
-        { id: 2, name: 'Max Coverage', value: '98%' },
+        { id: 2, name: 'Total Coverage', value: '98%' },
         { id: 3, name: 'Min Coverage', value: '30%' },
+        { id: 4, name: 'Max Coverage', value: '100%' },
     ];
 
     const cost_stats = [
         { id: 4, name: 'Total Money Spent', value: '$1,000,000' }, 
         { id: 5, name: 'Ships Purchased', value: '5' },
         { id: 6, name: 'Favorite Ship', value: 'Kingston' },
+        { id: 7, name: 'Least Favorite Ship', value: 'Halifax' },
     ];
 
     return (
@@ -155,8 +157,8 @@ export default function Results() {
                                             itemStyle={{ color: '#fff', fontFamily: 'arame' }}   
                                             labelStyle={{ color: '#fff', fontFamily: 'arame'}}
                                             formatter={(value, name) => {
-                                                if (name === "Cost & Resources") return [`$${(value * 1000).toLocaleString()}`, "Total Cost"];
-                                                if (name === "Coverage %") {
+                                                if (name === "Total Cost") return [`$${(value * 1000).toLocaleString()}`, "Total Cost"];
+                                                if (name === "Average Coverage Percentage") {
                                                     const real_percent = ((value / max_cost) * 100).toFixed(0);
                                                     return [`${real_percent}%`, "Coverage"];
                                                 }
@@ -176,7 +178,7 @@ export default function Results() {
                                             strokeWidth={3} 
                                             dot={{ r: 4, fill: '#AD8CFF' }}
                                             activeDot={{ r: 8 }} 
-                                            name="Coverage %" 
+                                            name="Average Coverage Percentage" 
                                         />
                                         <Line 
                                             type="monotone" 
@@ -184,7 +186,7 @@ export default function Results() {
                                             stroke="#7AEA69" 
                                             strokeWidth={3} 
                                             dot={{ r: 4, fill: '#7AEA69' }}
-                                            name="Cost & Resources" 
+                                            name="Total Cost" 
                                         />
                                     </LineChart>
                                 </ResponsiveContainer>

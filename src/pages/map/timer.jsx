@@ -1,61 +1,46 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 
 export function SimulationTimer({ 
-  seconds = 60, // Initial duration on first load
-  speed = 1, 
+  duration = 300, // Default duration in seconds
   isRunning = false, 
   onEnd
 }) {
-  const [timeLeft, setTimeLeft] = useState(seconds);
-  const [active, setActive] = useState(isRunning);
-
-  // Constant for the restart duration (5 minutes)
-  const RESTART_DURATION = 300; 
+  const [timeLeft, setTimeLeft] = useState(duration);
 
   // Countdown Logic
   useEffect(() => {
     let interval = null;
 
-    if (active && timeLeft > 0) {
+    if (isRunning && timeLeft > 0) {
       interval = setInterval(() => {
         setTimeLeft((prev) => {
-          // Check if we are about to hit zero
           if (prev <= 1) {
             clearInterval(interval);
-            setActive(false);
             if (onEnd) onEnd();
             return 0;
           }
           return prev - 1;
         });
-      }, 1000 / speed);
-    } else if (timeLeft <= 0) {
-      // Safety check to ensure we stop if we hit 0 externally
-      setActive(false);
+      }, 1000); // Fixed 1 second interval (no speed multiplier)
     }
 
     return () => clearInterval(interval);
-  }, [active, timeLeft, speed, onEnd]);
+  }, [isRunning, timeLeft, onEnd]);
 
-  // Handlers
-  const handleToggle = () => {
-    if (timeLeft <= 0) {
-      // If time is up, reset to 5 minutes and start
-      setTimeLeft(RESTART_DURATION);
-      setActive(true);
-    } else {
-      // Otherwise just toggle pause/play
-      setActive(!active);
-    }
-  };
-  
+  // Handler for "End Now"
   const handleEnd = useCallback(() => {
-    setActive(false);
     setTimeLeft(0);
     if (onEnd) onEnd();
   }, [onEnd]);
 
-  // Formatting
+  // Reset timer if duration changes or we restart (optional safety)
+  useEffect(() => {
+    if (!isRunning && timeLeft === 0) {
+        setTimeLeft(duration);
+    }
+  }, [isRunning, duration, timeLeft]);
+
+  // Formatting (HH:MM:SS)
   const timeString = useMemo(() => {
     const h = Math.floor(timeLeft / 3600);
     const m = Math.floor((timeLeft % 3600) / 60);
@@ -63,12 +48,8 @@ export function SimulationTimer({
     return `${h > 0 ? h + ':' : ''}${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   }, [timeLeft]);
 
-  // Determine button label
-  const getButtonLabel = () => {
-    if (active) return "Pause";
-    if (timeLeft <= 0) return "Restart 5m";
-    return "Resume";
-  };
+  // Don't render if not running (optional, remove if you want it visible always)
+  if (!isRunning && timeLeft === duration) return null;
 
   return (
     <div className="fixed right-4 bottom-4 z-[1000]">
@@ -76,7 +57,7 @@ export function SimulationTimer({
         
         {/* Status Light & Title */}
         <div className="flex items-center gap-3">
-            <div className={`w-2 h-2 rounded-full ${active ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
+            <div className={`w-2 h-2 rounded-full ${isRunning && timeLeft > 0 ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
             <div className="text-xs text-white/60 font-arame uppercase tracking-widest">
             Mission Clock
             </div>
@@ -89,28 +70,13 @@ export function SimulationTimer({
 
         {/* Footer */}
         <div className="flex items-center gap-3 mt-1">
-          <div className="text-xs font-arame text-white/60">
-            SPEED: <span className="text-white/90">{speed}x</span>
-          </div>
-          
-          <div className="h-4 w-[1px] bg-white/20" />
-          
-          <button
-            type="button"
-            onClick={handleToggle}
-            className="text-xs font-arame text-white/80 uppercase px-2 py-0.5 ring-1 ring-white/25 transition
-              hover:bg-blue-500/60 hover:ring-blue-500 hover:text-blue-100"
-          >
-            {getButtonLabel()}
-          </button>
-
           <button
             type="button"
             onClick={handleEnd}
             className="text-xs font-arame text-red-500 uppercase px-2 py-0.5 ring-1 ring-white/25 transition
               hover:bg-red-500/25 hover:ring-red-500 hover:cursor-pointer hover:text-red-400"
           >
-            End
+            End Now
           </button>
         </div>
       </div>

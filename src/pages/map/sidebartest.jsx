@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { SimulationTimer } from "./timer.jsx"; 
 import { ArcticSidebar } from "./ArcticSidebar.jsx"; 
 
@@ -9,23 +9,9 @@ const MOCK_BOATS = [
 
 export default function SidebarTest() {
   // ==============================
-  // 1. TIMER STATE & LOGIC
+  // 1. STATE
   // ==============================
   const [running, setRunning] = useState(false);
-  const [time, setTime] = useState(0); // Starting at 0 for a fresh simulation
-
-  useEffect(() => {
-    let interval;
-    if (running) {
-      interval = setInterval(() => setTime((t) => t + 1), 1000);
-    }
-    return () => clearInterval(interval);
-  }, [running]);
-
-
-  // ==============================
-  // 2. SIDEBAR STATE & LOGIC
-  // ==============================
   const [stage, setStage] = useState("PLANNING");
   const [qty, setQty] = useState({});
   const [activeShipId, setActiveShipId] = useState(null);
@@ -38,22 +24,26 @@ export default function SidebarTest() {
         name: b.name,
         boatId: b.id,
         speedKnots: b.topSpeedKnots,
-        // Mock route: We give them 2 points so they are valid for "DEPLOY" immediately
         route: [{x: 0, y: 0}, {x: 1, y: 1}], 
       }))
     );
   }, [qty]);
 
-  // Allow Draw/Deploy logic
   const canDeploy = ships.length > 0;
   
-  // Handler for the "Start" button inside the sidebar
+  // ==============================
+  // 2. HANDLERS
+  // ==============================
   const handleStartSimulation = () => {
+    // This triggers the Timer component to start counting down
     setRunning(true);
-    // Optional: You usually hide the sidebar or change views here
     console.log("Simulation started!"); 
   };
 
+  const handleSimulationEnd = () => {
+    setRunning(false);
+    console.log("Simulation ended!");
+  };
 
   // ==============================
   // 3. RENDER
@@ -98,13 +88,12 @@ export default function SidebarTest() {
         onClose={() => {}}
       />
 
-      {/* Timer Component (Fixed position handled inside the component or via absolute here) */}
+      {/* Timer Component */}
+      {/* It will appear/start only when running becomes true */}
       <SimulationTimer 
-        seconds={time} 
+        duration={300} // Set your desired countdown time here
         isRunning={running} 
-        // Allow pausing from the timer itself
-        onTogglePlay={() => setRunning(!running)} 
-        onEnd={() => setRunning(false)}
+        onEnd={handleSimulationEnd}
       />
 
     </div>
