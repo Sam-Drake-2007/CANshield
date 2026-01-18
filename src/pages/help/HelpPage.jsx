@@ -32,7 +32,7 @@ export default function HelpPage() {
 
                     {/*divisions of each section of the naval ships*/}
                     <div className="flex flex-wrap items-start justify-center py-6 gap-8">
-                        <div className="mx-5">
+                        <div className="mx-5 my-2">
                         <div className="w-60 h-60 bg-[url('./assets/images/icon-halifax.jpg')] bg-cover border-2 border-r"/>
                         <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Halifax Frigate<br/>
@@ -52,7 +52,7 @@ export default function HelpPage() {
                         </p>
                         </div>
 
-                        <div className="mx-5">
+                        <div className="mx-5 my-2">
                         <div className="w-60 h-60 bg-[url('./assets/images/icon-kingston.jpg')] bg-cover border-2 border-r"/>
                         <p className="text-white/80 font-arame text-[0.8rem] tracking-wider leading-7 mt-1.5">
                         Kingston Coastal Defence Vessel<br/>
