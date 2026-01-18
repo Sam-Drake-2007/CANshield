@@ -8,7 +8,9 @@ export default function LandingPage() {
         <main  className="bg-gray-700 min-h-screen w-full bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center bg-blend-overlay"
                     style={{
                     backgroundImage: `url(${background})`,}}>
+                    {/*background*/}
 
+            {/*help button*/}
             <div className="absolute right-4 top-4 z-50">
                 <Link to="help"className=" text-[2rem] text-white/80 font-arame 
                 px-2.5 py-2.5 bg-b1/60
@@ -20,17 +22,19 @@ export default function LandingPage() {
                 </Link>
             
             </div>
-            {/* WRITE THE CSS DIRECTLY IN the 'className' attribute, look up the equivalent CSS style on TailwindCSS' site if needed */}
+            {/*centered division for button and title screen*/}
             <div className="text-center">
-
+                {/*title*/}
                 <h1 className="text-white/95 text-[7rem] tracking-wide text-balance font-raider flex items-center gap-0.5">
-                <span className="text-r">CAN</span><LiaCanadianMapleLeaf color={"#fb2c36"}/><span className="text-[7rem]">SHIELD</span>
+                <span className="text-r">CAN</span><LiaCanadianMapleLeaf color={"#fb2c36"}/><span>SHIELD</span>
                 </h1>
 
+                {/*sub-title*/}
                 <p className="text-white/80 text-[1.2rem] font-arame tracking-wider ">
                 Real-time Canadian arctic strategy simulator
                 </p>
-
+                
+                {/*stylised button*/}
                 <div className="mt-10 flex items-center justify-center gap-x-6">
 
                     <Link to="/map"className="text-[1.8rem] text-white/80 font-arame

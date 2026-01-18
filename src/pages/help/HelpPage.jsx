@@ -8,25 +8,29 @@ export default function HelpPage() {
                     style={{
                     backgroundImage: `url(${background})`,}}>
 
-            {/* WRITE THE CSS DIRECTLY IN the 'className' attribute, look up the equivalent CSS style on TailwindCSS' site if needed */}
-            <div className="bg-black/60 w-full max-w-6xl h-auto rounded-xl backdrop-blur-sm mx-4">
+            {/*background of text boxes*/}
+            <div className="bg-black/50 w-full max-w-6xl h-auto  mx-4">
 
                 <div className="px-10 py-5">
 
+                    {/*title*/}
                     <h1 className="text-white/95 text-[3rem] tracking-wide text-balance font-raider flex items-center justify-center gap-0.5">
                     <span className="text-r">CAN</span><LiaCanadianMapleLeaf color={"#fb2c36"}/>SHIELD
                     </h1>
 
+                    {/*header 2*/}
                     <h2 className="text-white/80 font-arame text-[1.1rem] tracking-wider font-bold my-1">
                     How to Play ?
                     </h2>
 
+                    {/*how to play the game*/}
                     <p className="text-white/80 font-arame text-[0.9rem] tracking-wider leading-8">
                     CANShield simulates real-time strategy (RTS) of the Canadian Arctic Regions' naval passageways. 
                     Control your expenses and manage the deployment of 3 different classes of Canadian naval ships. 
                     Precise timing in deployments, as well as fleet decisions are key to keeping consistent coverage and reducing costs.
                     </p>
 
+                    {/*divisions of each section of the naval ships*/}
                     <div className="flex flex-wrap items-start justify-center py-6 gap-8">
                         <div className="mx-5">
                         <div className="w-60 h-60 bg-[url('./assets/images/icon-halifax.jpg')] bg-cover border-2 border-r"/>
@@ -59,7 +63,7 @@ export default function HelpPage() {
                         </div>
                     
                     </div>
-
+                    {/*disclaimer*/}
                     <p className="text-r font-arame text-[0.8rem] tracking-wider text-center leading-8">
                     *Ship statistics are for simulation purposes only. Data may not be accurate.
                     </p>
@@ -67,6 +71,7 @@ export default function HelpPage() {
                 </div>
 
             </div>
+            {/*return to landing page*/}
             <div className="mt-5 flex items-center justify-center gap-x-6">
                         <Link to="/"className="text-[1.2rem] text-white/80 font-arame
                         px-6 py-2.5 bg-b1/60

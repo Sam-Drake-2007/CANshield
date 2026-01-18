@@ -44,7 +44,7 @@ export default function Results() {
             
             {/* Game Over Title */}
             <div className="mb-7 flex items-center justify-center">
-                <p className="text-6xl font-bold tracking-tight sm:text-8xl uppercase">
+                <p className="text-6xl tracking-wide sm:text-8xl uppercase gap-0.5">
                     <span className="text-r font-raider">Game </span>
                     <span className="text-white/95 font-raider">Over</span>
                 </p>
@@ -53,8 +53,8 @@ export default function Results() {
             {/* Container for both sections */}
             <div className="flex flex-col md:flex-row gap-8 max-w-6xl w-full px-4">
 
-                {/* --- RED BOX (Coverage) --- */}
-                <div className="flex-1 bg-black/40 p-10 border-2 border-purple/80
+                {/* --- Coverage --- */}
+                <div className="flex-1 bg-black/50 p-10 border-2 border-purple/80
                  hover:border-purple hover:text-purple hover:shadow-[0_0_20px_purple] duration-300 hover:duration-300">
                     <p className="text-purple/80 text-2xl font-arame uppercase tracking-wider text-center mb-6 ">
                         Coverage
@@ -69,8 +69,8 @@ export default function Results() {
                     </dl>
                 </div>
 
-                {/* --- GREEN BOX (Cost) --- */}
-                <div className="flex-1 bg-black/40 p-10 border-2 border-green/80 
+                {/* --- Cost --- */}
+                <div className="flex-1 bg-black/50 p-10 border-2 border-green/80 
                  hover:border-green hover:text-green hover:shadow-[0_0_20px_green] duration-300 hover:duration-300">
                     <p className="text-green/80 text-2xl font-arame uppercase tracking-wider text-center mb-6">
                         Resources & Cost
