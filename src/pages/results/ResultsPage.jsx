@@ -148,6 +148,7 @@ export default function Results() {
                                             contentStyle={{ backgroundColor: '#111827', border: '1px solid #06b6d4', borderRadius: '8px' }} 
                                             itemStyle={{ color: '#fff' }}   
                                             labelStyle={{ color: '#fff' }}
+                                            
                                             formatter={(value, name) => {
                                                 if (name === "Cost") return [`$${(value * 1000).toLocaleString()}`, "Total Cost"];
                                                 if (name === "Coverage %") {
