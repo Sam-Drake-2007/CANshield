@@ -7,7 +7,7 @@ function QtyStepper({ value, onChange, disabled }) {
         type="button"
         disabled={disabled || value <= 0}
         onClick={() => onChange(value - 1)}
-        className="h-8 w-8 rounded-lg border border-white/15 bg-white/5 text-white/90 hover:bg-white/10 disabled:opacity-40 disabled:hover:bg-white/5"
+        className="h-8 w-8 font-arame ring-2 ring-white/25 duration-500 bg-b1/60 text-white/80 hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r"
       >
         –
       </button>
@@ -16,7 +16,7 @@ function QtyStepper({ value, onChange, disabled }) {
         type="button"
         disabled={disabled}
         onClick={() => onChange(value + 1)}
-        className="h-8 w-8 rounded-lg border border-white/15 bg-white/5 text-white/90 hover:bg-white/10 disabled:opacity-40 disabled:hover:bg-white/5"
+        className="h-8 w-8 font-arame ring-2 ring-white/25 duration-500 bg-b1/60 text-white/80 hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r"
       >
         +
       </button>
@@ -109,72 +109,55 @@ export function ArcticSidebar({
 
   return (
     <div className="absolute left-4 top-4 bottom-4 z-[1000] w-[360px] max-w-[92vw]">
-      <div className="h-full rounded-2xl border border-white/10 bg-black/45 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] overflow-hidden flex flex-col">
-        {/* Header */}
-        <div className="p-4 border-b border-white/10">
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <div className="text-white font-semibold text-lg leading-tight">CANshield</div>
-              <div className="mt-2 text-white/60 text-xs">
-                <span className="font-bold capitalize">MAP:</span> Arctic Corridor
-              </div>
+      <div className="h-full bg-black/50 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] overflow-hidden flex flex-col">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <div className="text-white/80 font-arame text-lg leading-wide">CANshield</div>
+            <div className="mt-2 text-white/60 font-arame text-xs">
+              MAP: Arctic Corridor
             </div>
+          </div>
 
-            <div className="flex items-center gap-1">
-              <div className="flex items-center gap-1 rounded-xl border border-white/10 bg-white/5 p-1">
-                <button
+          <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 ring-2 ring-white/25 bg-white/5 p-1">                <button
                   type="button"
                   onClick={() => setStage("PLANNING")}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
+                  className={`px-3 py-1.5 text-xs font-arame  transition ${
                     stage === "PLANNING"
-                      ? "bg-white text-black"
-                      : "text-white/80 hover:bg-white/10"
+                      ? "bg-white/80 text-b"
+                      : "text-white/80 hover:bg-white/5"
                   }`}
                 >
                   PLANNING
-                </button>
+              </button>
 
-                <button
+              <button
                   type="button"
                   disabled={!canGoToDraw}
                   onClick={onGoToDraw}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
+                  className={`px-3 py-1.5 text-xs font-arame transition ${
                     stage === "DRAW"
-                      ? "bg-white text-black"
-                      : "text-white/80 hover:bg-white/10 disabled:opacity-40"
+                      ? "bg-white/80 text-b"
+                      : "text-white/80 hover:bg-white/5 disabled:opacity-40"
                   }`}
                   title={!canGoToDraw ? "Pick at least 1 ship first" : ""}
                 >
                   DRAW
-                </button>
+              </button>
 
-                <button
+              <button
                   type="button"
                   disabled={!canDeploy}
                   onClick={onGoToDeploy}
-                  className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
+                  className={`px-3 py-1.5 text-xs font-arame transition ${
                     stage === "DEPLOY"
-                      ? "bg-white text-black"
-                      : "text-white/80 hover:bg-white/10 disabled:opacity-40"
+                      ? "bg-white/80 text-b"
+                      : "text-white/80 hover:bg-white/5 disabled:opacity-40"
                   }`}
                   title={!canDeploy ? "Every ship needs a 2+ point route" : ""}
                 >
                   DEPLOY
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Port (static for now) */}
-          <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-3">
-            <div className="flex items-center justify-between">
-              <div className="text-white/80 text-sm font-semibold">Port Coordinates</div>
-              <div className="text-white/60 text-xs hover:underline cursor-pointer">
-                (Go to Coordinates)
-              </div>
-            </div>
-            <div className="mt-1 text-white/80 text-sm">
-              <span className="font-mono">(74.5, -95)</span>
+              </button>
             </div>
           </div>
         </div>
@@ -185,18 +168,18 @@ export function ArcticSidebar({
           {isDraw && (
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <div className="text-white font-semibold">Draw routes</div>
-                <div className="text-xs text-white/50">
+                <div className="text-white/80 font-arame">Draw routes</div>
+                <div className="text-xs text-white/60">
                   {allShipsRouted ? "All routed ✓" : "All ships must be routed"}
                 </div>
               </div>
 
-              <div className="text-xs text-white/60">
+              <div className="text-xs text-white/60 font-arame leading-wide">
                 Select a ship, then click on the map to add points. Land clicks are ignored.
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/5 overflow-hidden">
-                <div className="px-3 py-2 border-b border-white/10 text-xs text-white/60">
+              <div className=" ring-2 ring-white/25 bg-white/5 overflow-hidden">
+                <div className="px-3 py-2 ring-2 ring-white/25 text-xs font-arame text-white/80">
                   Deployed ships
                 </div>
                 <div className="divide-y divide-white/10">
@@ -210,22 +193,22 @@ export function ArcticSidebar({
                         onClick={() => setActiveShipId?.(s.id)}
                         className={[
                           "w-full text-left px-3 py-2 transition",
-                          active ? "bg-white/10" : "hover:bg-white/10",
+                          active ? "bg-white/5" : "hover:bg-white/10",
                         ].join(" ")}
                       >
                         <div className="flex items-center justify-between gap-2">
                           <div className="min-w-0">
-                            <div className="text-sm text-white/90 font-semibold truncate">
+                            <div className="text-sm text-white/80 font-arame truncate">
                               {s.name} #{idx + 1}
                             </div>
-                            <div className="mt-0.5 text-xs text-white/60">
+                            <div className="mt-0.5 text-xs font-arame text-white/60">
                               Route:{" "}
-                              <span className={ok ? "text-white/85" : "text-red-400"}>
+                              <span className={ok ? "text-white/80" : "text-r2"}>
                                 {s.route?.length ?? 0} pts
                               </span>
                             </div>
                           </div>
-                          <div className="text-xs text-white/60 whitespace-nowrap">
+                          <div className="text-xs font-arame text-white/60 whitespace-nowrap">
                             {s.speedKnots} kn
                           </div>
                         </div>
@@ -240,7 +223,8 @@ export function ArcticSidebar({
                   type="button"
                   onClick={onUndoRoute}
                   disabled={!activeShip || activeRoutePoints === 0}
-                  className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/85 hover:bg-white/10 disabled:opacity-40"
+                  className=" ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80
+                   hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r disabled:opacity-40"
                 >
                   Undo
                 </button>
@@ -248,15 +232,16 @@ export function ArcticSidebar({
                   type="button"
                   onClick={onClearRoute}
                   disabled={!activeShip || activeRoutePoints === 0}
-                  className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/85 hover:bg-white/10 disabled:opacity-40"
+                  className="ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80
+                   hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r disabled:opacity-40"
                 >
                   Clear
                 </button>
               </div>
 
-              <div className="text-xs text-white/50">
-                DEPLOY unlocks when <span className="text-white/80 font-semibold">every ship</span> has{" "}
-                <span className="text-white/80 font-semibold">2+ points</span>.
+              <div className="text-xs text-white/60 font-arame">
+                DEPLOY unlocks when <span className="text-white/80 font-arame">every ship</span> has{" "}
+                <span className="text-white/80 font-arame">2+ points</span>.
               </div>
             </div>
           )}
@@ -265,16 +250,16 @@ export function ArcticSidebar({
           {isDeploy && (
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <div className="text-white font-semibold">Deployment summary</div>
-                <div className="text-xs text-white/50">Routes locked</div>
+                <div className="text-white/80 font-arame">Deployment summary</div>
+                <div className="text-xs font-arame text-white/60">Routes locked</div>
               </div>
 
-              <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+              <div className="ring-2 font-arame ring-white/25 bg-b1/40 p-3">
                 <div className="text-xs text-white/60">Ships</div>
-                <div className="mt-1 text-white font-semibold text-lg">{ships.length}</div>
+                <div className="mt-1 text-white/80 font-arame text-lg">{ships.length}</div>
 
                 <div className="mt-3 text-xs text-white/60">Routing status</div>
-                <div className="mt-1 text-white/85">
+                <div className="mt-1 text-white/80">
                   {allShipsRouted ? "All ships have valid routes ✓" : "Missing routes (should be impossible here)"}
                 </div>
               </div>
@@ -283,12 +268,13 @@ export function ArcticSidebar({
                 type="button"
                 onClick={onStartSimulation}
                 disabled={!allShipsRouted || ships.length === 0}
-                className="w-full px-4 py-2 rounded-xl bg-white text-black font-semibold text-sm hover:opacity-90 disabled:opacity-40"
+                className="w-full px-4 py-2 bg-b1/60 text-white/80 ring-2 ring-white/25 duration-500 font-arame text-sm 
+                hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r disabled:opacity-40"
               >
                 Start
               </button>
 
-              <div className="text-xs text-white/50">
+              <div className="text-xs font-arame text-white/60">
                 Starting hides the sidebar and begins the timer.
               </div>
             </div>
@@ -300,11 +286,11 @@ export function ArcticSidebar({
               {/* Fleet */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-white font-semibold">Fleet</div>
+                  <div className="text-white/80 font-arame">Fleet</div>
                   <button
                     type="button"
                     onClick={resetFleet}
-                    className="text-xs text-white/70 hover:text-white cursor-pointer hover:underline"
+                    className="text-xs font-arame text-white/80 duration-300 hover:text-r hover:cursor-pointer hover:underline"
                   >
                     Reset
                   </button>
@@ -316,27 +302,27 @@ export function ArcticSidebar({
                     const subtotal = qty * b.cost;
 
                     return (
-                      <div key={b.id} className="rounded-xl border border-white/10 bg-white/5 p-3">
+                      <div key={b.id} className="ring-2 ring-white/25 bg-b1/40 p-3">
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
                             <div
-                              className="text-white/90 font-semibold leading-tight truncate"
+                              className="text-white/80 font-arame leading-tight truncate"
                               title={b.name}
                             >
                               {b.name}
                             </div>
 
-                            <div className="my-2 text-[0.6rem] text-white/65">
+                            <div className="my-2 text-[0.6rem] font-arame text-white/60">
                               <span className="mr-3">Speed: {b.topSpeedKnots} kn</span>
                               <span>Range: {b.rangeNm} nm</span>
                             </div>
 
-                            <div className="mt-1 flex items-center justify-between gap-3 text-sm text-white/80">
+                            <div className="mt-1 flex items-center justify-between gap-3 text-sm font-arame text-white/80">
                               <div className="whitespace-nowrap shrink-0">{fmtMoney(b.cost)} each</div>
 
-                              <div className="whitespace-nowrap shrink-0 text-white/70">
+                              <div className="whitespace-nowrap shrink-0 text-white/60">
                                 Subtotal:{" "}
-                                <span className="text-white/90 font-semibold">
+                                <span className="text-white/80 font-arame">
                                   {fmtMoney(subtotal)}
                                 </span>
                               </div>
@@ -358,13 +344,13 @@ export function ArcticSidebar({
 
                 {/* Summary */}
                 <div className="mt-3 grid grid-cols-2 gap-2">
-                  <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                  <div className=" ring-2 ring-white/25 bg-b1/40 p-3">
                     <div className="text-xs text-white/60">Ships planned</div>
-                    <div className="text-white font-semibold text-lg">{totalShipsPlanned}</div>
+                    <div className="text-white/80 font-arame text-lg">{totalShipsPlanned}</div>
                   </div>
-                  <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                  <div className="ring-2 ring-white/25 bg-b1/40 p-3">
                     <div className="text-xs text-white/60">Est. coverage</div>
-                    <div className="text-white font-semibold text-lg">
+                    <div className="text-white/80 font-arame text-lg">
                       {estimatedCoverage.toFixed(1)}%
                     </div>
                   </div>
@@ -374,9 +360,9 @@ export function ArcticSidebar({
               {/* Previous Operations */}
               <div className="mt-4">
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-white font-semibold">Previous Operations</div>
-                  <div className="text-xs text-white/50">
-                    loads <span className="text-white/70 font-semibold">fleet preset</span>
+                  <div className="text-white/80 font-arame">Previous Operations</div>
+                  <div className="text-xs text-white/60">
+                    loads <span className="text-white/80 font-arame">fleet preset</span>
                   </div>
                 </div>
 
@@ -390,15 +376,15 @@ export function ArcticSidebar({
                         type="button"
                         onClick={() => applyOperationPreset(op)}
                         className={[
-                          "w-full text-left rounded-xl border p-3 transition",
+                          "w-full text-left ring-2 p-3 transition",
                           active
-                            ? "border-white/25 bg-white/10"
-                            : "border-white/10 bg-white/5 hover:bg-white/10",
+                            ? "bg-white/80 text-b"
+                            : "text-white/80 hover:bg-white/5",
                         ].join(" ")}
                       >
                         <div className="flex items-center justify-between">
                           <div className="text-xs text-white/60">{op.createdAt}</div>
-                          <div className={`text-sm font-semibold ${costColor(op.totalCost)}`}>
+                          <div className={`text-sm font-arame ${costColor(op.totalCost)}`}>
                             {fmtMoney(op.totalCost)}
                           </div>
                         </div>
@@ -406,13 +392,13 @@ export function ArcticSidebar({
                         <div className="mt-1 flex items-center justify-between">
                           <div className="text-xs text-white/60">
                             Coverage:{" "}
-                            <span className="text-white/85 font-semibold">
+                            <span className="text-white/80 font-arame">
                               {op.avgCoveragePercent}%
                             </span>
                           </div>
                           <div className="text-xs text-white/60">
                             Fleet:{" "}
-                            <span className="text-white/85 font-semibold">
+                            <span className="text-white/80 font-arame">
                               {op.ships.map((s) => `${s.quantity}×${s.boatId}`).join("  ·  ")}
                             </span>
                           </div>
@@ -427,11 +413,11 @@ export function ArcticSidebar({
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-white/10">
+        <div className="p-4 font-arame border-t border-white/10">
           <div className="flex items-center justify-between">
             <div>
               <div className="text-xs text-white/60">Total cost</div>
-              <div className={`font-semibold text-xl ${costColor(totalCost)}`}>
+              <div className={` text-xl ${costColor(totalCost)}`}>
                 {fmtMoney(totalCost)}
               </div>
             </div>
@@ -442,7 +428,9 @@ export function ArcticSidebar({
                   type="button"
                   disabled={!canGoToDraw}
                   onClick={onGoToDraw}
-                  className="px-4 py-2 rounded-xl bg-white text-black font-semibold text-sm hover:opacity-90 disabled:opacity-40"
+                  className="px-4 py-2 bg-b1/60 text-white/80
+                    ring-2 ring-white/25 duration-500 font-arame text-sm
+                  hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r disabled:opacity-40"
                 >
                   Continue to Draw
                 </button>
@@ -450,7 +438,9 @@ export function ArcticSidebar({
                 <button
                   type="button"
                   onClick={() => setStage("PLANNING")}
-                  className="px-4 py-2 rounded-xl border border-white/15 bg-white/5 text-white font-semibold text-sm hover:bg-white/10"
+                  className="px-4 py-2 bg-b1/60 text-white/80
+                    ring-2 ring-white/25 duration-500 font-arame text-sm
+                  hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r"
                 >
                   Back to Planning
                 </button>
@@ -458,7 +448,7 @@ export function ArcticSidebar({
             </div>
           </div>
 
-          <div className="mt-2 text-xs text-white/50">
+          <div className="mt-2 text-xs font-amare text-white/60">
             {stage === "PLANNING" && "Pick a fleet, then draw a route for each ship."}
             {stage === "DRAW" && "Select each ship and draw its patrol route."}
             {stage === "DEPLOY" && "Review summary, then start simulation."}
