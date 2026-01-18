@@ -9,7 +9,7 @@ import Results from './pages/results/ResultsPage.jsx'
 import Help from './pages/help/HelpPage.jsx'
 import favicon from './assets/images/favicon.png'
 
-import SidebarTest from './sidebartest.jsx'
+import SidebarTest from './pages/map/sidebartest.jsx'
 
 const link = document.querySelector("link[rel~='icon']");
 if (link) {

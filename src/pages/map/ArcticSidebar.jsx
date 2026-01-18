@@ -86,7 +86,6 @@ export function ArcticSidebar({
   };
 
   const applyOperationPreset = (op) => {
-    // This loads a *fleet preset* (route preset later if you want)
     setStage("PLANNING");
     setSelectedPresetId(op.id);
 
@@ -107,21 +106,24 @@ export function ArcticSidebar({
     [ships, activeShipId]
   );
 
-  return (
-    <div className="absolute left-4 top-4 bottom-4 z-[1000] w-[360px] max-w-[92vw]">
-      <div className="h-full bg-black/50 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] overflow-hidden flex flex-col">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <div className="text-white/80 font-arame text-lg leading-wide">CANshield</div>
-            <div className="mt-2 text-white/60 font-arame text-xs">
-              MAP: Arctic Corridor
-            </div>
+return (
+  <div className="absolute left-4 top-4 bottom-4 z-[1000] w-[360px] max-w-[92vw]">
+    <div className="h-full bg-black/50 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] overflow-hidden flex flex-col">
+      
+      <div className="flex items-start justify-between gap-3 p-4"> 
+        
+        <div>
+          <div className="text-white/80 font-arame text-lg leading-wide">CANshield</div>
+          <div className="mt-2 text-white/60 font-arame text-xs">
+            MAP: Arctic Corridor
           </div>
+        </div>
 
-          <div className="flex items-center gap-1">
-            <div className="flex items-center gap-1 ring-2 ring-white/25 bg-white/5 p-1">                <button
-                  type="button"
-                  onClick={() => setStage("PLANNING")}
+        <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 ring-2 ring-white/25 bg-white/5 p-1">
+            <button
+              type="button"
+              onClick={() => setStage("PLANNING")}
                   className={`px-3 py-1.5 text-xs font-arame  transition ${
                     stage === "PLANNING"
                       ? "bg-white/80 text-b"
@@ -169,12 +171,12 @@ export function ArcticSidebar({
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="text-white/80 font-arame">Draw routes</div>
-                <div className="text-xs text-white/60">
+                <div className="text-xs font-arame text-white/60">
                   {allShipsRouted ? "All routed ✓" : "All ships must be routed"}
                 </div>
               </div>
 
-              <div className="text-xs text-white/60 font-arame leading-wide">
+              <div className="text-xs font-arame text-white/60 leading-wide">
                 Select a ship, then click on the map to add points. Land clicks are ignored.
               </div>
 
@@ -223,8 +225,8 @@ export function ArcticSidebar({
                   type="button"
                   onClick={onUndoRoute}
                   disabled={!activeShip || activeRoutePoints === 0}
-                  className=" ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80
-                   hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r disabled:opacity-40"
+                className="ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80 disabled:opacity-40
+      enabled:hover:bg-r2/25 enabled:hover:ring-r enabled:hover:cursor-pointer enabled:hover:duration-500 enabled:hover:text-r"
                 >
                   Undo
                 </button>
@@ -232,8 +234,8 @@ export function ArcticSidebar({
                   type="button"
                   onClick={onClearRoute}
                   disabled={!activeShip || activeRoutePoints === 0}
-                  className="ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80
-                   hover:bg-r2/25 hover:ring-r hover:cursor-pointer hover:duration-500 hover:text-r disabled:opacity-40"
+                  className="ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80 disabled:opacity-40
+      enabled:hover:bg-r2/25 enabled:hover:ring-r enabled:hover:cursor-pointer enabled:hover:duration-500 enabled:hover:text-r"
                 >
                   Clear
                 </button>
