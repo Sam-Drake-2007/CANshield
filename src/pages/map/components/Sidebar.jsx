@@ -68,12 +68,22 @@ export function Sidebar({
   }, [boats, qtyByBoatId]);
 
   const estimatedCoverage = useMemo(() => {
-    const score = boats.reduce((acc, b) => {
+    const raw = boats.reduce((acc, b) => {
       const qty = qtyByBoatId[b.id] || 0;
-      const perShip = b.rangeNm * 0.008 + b.topSpeedKnots * 1.2;
+
+      const perShip =
+        (b.rangeNm / 1000) * 2.0 +   // range in "thousands of nm"
+        (b.topSpeedKnots) * 0.8;     // speed contribution
+
       return acc + perShip * qty;
     }, 0);
-    return Math.max(0, Math.min(100, score));
+
+    const TARGET = 200; // the higher the number, the more ships you need to get a higher est. coverage
+
+    const x = raw / TARGET;
+    const eased = 1 - Math.exp(-2.2 * x);
+
+    return Math.max(0, Math.min(100, eased * 100));
   }, [boats, qtyByBoatId]);
 
   const updateQty = (boatId, next) => {
@@ -106,59 +116,56 @@ export function Sidebar({
     [ships, activeShipId]
   );
 
-return (
-  <div className="absolute left-4 top-4 bottom-4 z-[1000] w-[360px] max-w-[92vw]">
-    <div className="h-full bg-black/50 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] overflow-hidden flex flex-col">
-      
-      <div className="flex items-start justify-between gap-3 p-4"> 
-        
-        <div>
-          <div className="text-white/80 font-arame text-lg leading-wide">CANshield</div>
-          <div className="mt-2 text-white/60 font-arame text-xs">
-            MAP: Arctic Corridor
+  return (
+    <div className="absolute left-4 top-4 bottom-4 z-[1000] w-[360px] max-w-[92vw]">
+      <div className="h-full bg-black/50 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] overflow-hidden flex flex-col">
+
+        <div className="flex items-start justify-between gap-3 p-4">
+
+          <div>
+            <div className="text-white/80 font-arame text-lg leading-wide">CANshield</div>
+            <div className="mt-2 text-white/60 font-arame text-xs">
+              MAP: Arctic Corridor
+            </div>
           </div>
-        </div>
 
-        <div className="flex items-center gap-1">
-          <div className="flex items-center gap-1 ring-2 ring-white/25 bg-white/5 p-1">
-            <button
-              type="button"
-              onClick={() => setStage("PLANNING")}
-                  className={`px-3 py-1.5 text-xs font-arame  transition ${
-                    stage === "PLANNING"
-                      ? "bg-white/80 text-b"
-                      : "text-white/80 hover:bg-white/5"
+          <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 ring-2 ring-white/25 bg-white/5 p-1">
+              <button
+                type="button"
+                onClick={() => setStage("PLANNING")}
+                className={`px-3 py-1.5 text-xs font-arame  transition ${stage === "PLANNING"
+                  ? "bg-white/80 text-b"
+                  : "text-white/80 hover:bg-white/5"
                   }`}
-                >
-                  PLANNING
+              >
+                PLANNING
               </button>
 
               <button
-                  type="button"
-                  disabled={!canGoToDraw}
-                  onClick={onGoToDraw}
-                  className={`px-3 py-1.5 text-xs font-arame transition ${
-                    stage === "DRAW"
-                      ? "bg-white/80 text-b"
-                      : "text-white/80 hover:bg-white/5 disabled:opacity-40"
+                type="button"
+                disabled={!canGoToDraw}
+                onClick={onGoToDraw}
+                className={`px-3 py-1.5 text-xs font-arame transition ${stage === "DRAW"
+                  ? "bg-white/80 text-b"
+                  : "text-white/80 hover:bg-white/5 disabled:opacity-40"
                   }`}
-                  title={!canGoToDraw ? "Pick at least 1 ship first" : ""}
-                >
-                  DRAW
+                title={!canGoToDraw ? "Pick at least 1 ship first" : ""}
+              >
+                DRAW
               </button>
 
               <button
-                  type="button"
-                  disabled={!canDeploy}
-                  onClick={onGoToDeploy}
-                  className={`px-3 py-1.5 text-xs font-arame transition ${
-                    stage === "DEPLOY"
-                      ? "bg-white/80 text-b"
-                      : "text-white/80 hover:bg-white/5 disabled:opacity-40"
+                type="button"
+                disabled={!canDeploy}
+                onClick={onGoToDeploy}
+                className={`px-3 py-1.5 text-xs font-arame transition ${stage === "DEPLOY"
+                  ? "bg-white/80 text-b"
+                  : "text-white/80 hover:bg-white/5 disabled:opacity-40"
                   }`}
-                  title={!canDeploy ? "Every ship needs a 2+ point route" : ""}
-                >
-                  DEPLOY
+                title={!canDeploy ? "Every ship needs a 2+ point route" : ""}
+              >
+                DEPLOY
               </button>
             </div>
           </div>
@@ -225,7 +232,7 @@ return (
                   type="button"
                   onClick={onUndoRoute}
                   disabled={!activeShip || activeRoutePoints === 0}
-                className="ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80 disabled:opacity-40
+                  className="ring-2 ring-white/25 duration-500 bg-b1/60 px-3 py-2 text-xs font-arame text-white/80 disabled:opacity-40
       enabled:hover:bg-r2/25 enabled:hover:ring-r enabled:hover:cursor-pointer enabled:hover:duration-500 enabled:hover:text-r"
                 >
                   Undo
