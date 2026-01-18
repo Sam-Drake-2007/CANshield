@@ -25,8 +25,8 @@ export default function Results() {
 
     const coverage_stats = [
         { id: 1, name: 'Average Coverage', value: '73%' },
-        { id: 2, name: 'Max Coverage', value: '30%' },
-        { id: 3, name: 'Min Coverage', value: '98%' },
+        { id: 2, name: 'Max Coverage', value: '98%' },
+        { id: 3, name: 'Min Coverage', value: '30%' },
     ];
 
     const cost_stats = [
