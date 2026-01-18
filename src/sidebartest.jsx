@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-// MAKE SURE THIS PATH IS CORRECT for your project structure:
+// MAKE SURE THIS PATH IS CORRECT:
 import { ArcticSidebar } from "./ArcticSidebar"; 
 
 const MOCK_BOATS = [
@@ -11,49 +11,51 @@ export default function SidebarTest() {
   const [stage, setStage] = useState("PLANNING");
   const [qty, setQty] = useState({});
 
-  // Minimal logic to generate "ships" so the DRAW tab doesn't crash
+  // Logic to generate ships with PRE-FILLED routes
   const ships = useMemo(() => {
     return MOCK_BOATS.flatMap(b => 
       Array(qty[b.id] || 0).fill(null).map((_, i) => ({
         id: `${b.id}_${i}`,
         name: b.name,
         boatId: b.id,
-        route: [], // empty route
+        speedKnots: b.topSpeedKnots,
+        // We fake a route so the sidebar thinks we drew it
+        route: [{x: 0, y: 0}, {x: 1, y: 1}], 
       }))
     );
   }, [qty]);
 
+  // We allow deploy if there is at least 1 ship
+  const canDeploy = ships.length > 0;
+
   return (
-    // Just a plain flat background
     <div className="w-full h-screen bg-neutral-900">
       <ArcticSidebar
-        // Data
         boats={MOCK_BOATS}
         previousOperations={[]}
         ships={ships}
 
-        // State
         stage={stage}
         setStage={setStage}
         qtyByBoatId={qty}
         setQtyByBoatId={setQty}
         
-        // Formatting dummies
         costColor={() => "text-white"}
         fmtMoney={(n) => `$${n}`}
 
-        // Interactive dummies (safe defaults)
         activeShipId={null}
         activeRoutePoints={0}
-        canGoToDraw={ships.length > 0}
-        canDeploy={false}
         
-        // No-op event handlers
+        // Force these to true so you can click the buttons
+        canGoToDraw={ships.length > 0}
+        canDeploy={canDeploy} 
+        
         onGoToDraw={() => setStage("DRAW")}
         onGoToDeploy={() => setStage("DEPLOY")}
+        
         onUndoRoute={() => {}}
         onClearRoute={() => {}}
-        onStartSimulation={() => {}}
+        onStartSimulation={() => alert("Simulation Started!")}
         onClose={() => {}}
       />
     </div>
