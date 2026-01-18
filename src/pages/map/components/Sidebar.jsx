@@ -11,7 +11,7 @@ function QtyStepper({ value, onChange, disabled }) {
       >
         –
       </button>
-      <div className="w-8 text-center text-white/90 font-semibold">{value}</div>
+      <div className="w-8 font-arame text-center text-white/90 font-semibold">{value}</div>
       <button
         type="button"
         disabled={disabled}

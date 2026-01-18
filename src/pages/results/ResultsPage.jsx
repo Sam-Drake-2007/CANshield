@@ -8,9 +8,7 @@ import { MdHistory } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
 
 export default function Results() {
-
     {/* Defining Constants */}
-
     const [isModalOpen, setIsModalOpen] = useState(false); // Hiding popup modal until triggered
     
     const max_cost = Math.max(...MOCK_HISTORY.map(run => run.totalCost / 1000)); // Max cost in thousands

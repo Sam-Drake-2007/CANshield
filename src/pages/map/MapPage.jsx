@@ -199,8 +199,7 @@ export default function MapPage() {
 
   const goToDraw = useCallback(() => {
     if (!canGoToDraw) return;
-
-    if (!ships.length) initShipsFromFleet();
+    initShipsFromFleet();
     if (ships.length && !activeShipId) setActiveShipId(ships[0]?.id ?? null);
 
     setStage(STAGES.DRAW);
