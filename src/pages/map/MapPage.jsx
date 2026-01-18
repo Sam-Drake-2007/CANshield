@@ -466,20 +466,6 @@ export default function MapPage() {
           })}
       </MapContainer>
 
-      {/* Cost box */}
-      <div className="absolute right-4 bottom-4 z-[1000]">
-        <div className="rounded-2xl border border-white/10 bg-black/45 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.45)] px-4 py-3">
-          <div className="text-xs text-white/60">Current simulation cost</div>
-          <div className={`font-semibold text-2xl ${costColor(totalCost)}`}>
-            {fmtMoney(totalCost)}
-          </div>
-          <div className="mt-1 text-[11px] text-white/45">
-            Mission time ×{DEMO_TIME_SCALE} •{" "}
-            {Math.round(DEMO_DURATION_MS / 1000)}s
-          </div>
-        </div>
-      </div>
-
       {/* Sidebar toggle hidden during RUNNING */}
       {stage !== STAGES.RUNNING && (
         <button
