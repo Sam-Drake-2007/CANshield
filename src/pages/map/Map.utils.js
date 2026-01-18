@@ -9,7 +9,7 @@ export const GRID_ROWS = 160;
 export const GRID_COLS = 240;
 
 // NOTE: TUNE FOR DEMOING PURPOSES
-export const DEMO_DURATION_MS = 100000;
+export const DEMO_DURATION_MS = 10000;
 export const DEMO_TIME_SCALE = 120;
 
 export const STAGES = {

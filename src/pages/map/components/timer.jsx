@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 
 export function SimulationTimer({ 
-  duration = 300, // Default duration in seconds
+  duration,
   isRunning = false, 
   onEnd
 }) {
