@@ -2,10 +2,10 @@
 
 > **Thales Challenge Submission** > An Arctic passageway defense simulator designed with RTS gameplay mechanics.
 
-## 📸 Demo Video
+## 🎬 Demo Video
 [![Watch the video](https://img.youtube.com/vi/FiWHdm8gHqw/maxresdefault.jpg)](https://youtu.be/FiWHdm8gHqw)
 
-## 📸 Screenshots & Demo
+## 📸 Screenshots
 ![Landing Page](src/assets/screenshots/CANshield-landing.png)
 ![Help Page](src/assets/screenshots/CANshield-help.png)
 ![Monitoring Page](src/assets/screenshots/CANshield-draw.png)
