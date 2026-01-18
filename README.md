@@ -109,5 +109,5 @@ We are hoping to expand on the app to allow for more repeatability and usage of 
 
 ## 👥 The Team
 * **Samuel Drake**
-* **Thomas**
-* **Yoël**
+* **Thomas Pingot**
+* **Yoël Makaya-Leandrine**
