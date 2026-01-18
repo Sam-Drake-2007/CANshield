@@ -8,7 +8,7 @@ import {
     Tooltip,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useMemo, useState, useEffect, useCallback } from "react";
+import { useMemo, useState, useEffect, useCallback, useRef } from "react";
 
 import { Sidebar } from "./components/Sidebar.jsx";
 import { SimulationTimer } from "./components/timer.jsx";
@@ -20,6 +20,8 @@ import { RouteDrawingLayer } from "./components/RouteDrawingLayer.jsx";
 
 import { useMultiShipSimulation } from "../../hooks/useMultiShipSimulation.js";
 import { useCoverageTracker } from "../../hooks/useCoverageTracker.js";
+
+import { useNavigate } from "react-router-dom";
 
 import {
     GRID_ROWS,
@@ -109,6 +111,8 @@ export default function MapPage() {
 
     const [timerRunning, setTimerRunning] = useState(false);
     const [maskObj, setMaskObj] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -299,10 +303,47 @@ export default function MapPage() {
     }, [totalCost, totalShips, ships]);
 
     const handleTimerEnd = useCallback(() => {
-        // If timer ends first, force results screen
         setTimerRunning(false);
-        setStage(STAGES.RESULTS);
+
+        const snap = latestRef.current;
+        if (!snap) return;
+
+        const run = {
+            createdAt: new Date().toISOString(),
+            totalCost: snap.totalCost,
+            totalShips: snap.totalShips,
+            shipsDeployed: snap.ships.length,
+            totalRoutePoints: snap.ships.reduce((a, s) => a + (s.route?.length ?? 0), 0),
+            coverage: {
+            total: snap.coverageSummary.total,
+            min: snap.coverageSummary.min,
+            avg: snap.coverageSummary.avg,
+            max: snap.coverageSummary.max,
+            totalCoveredWaterCells: snap.coverageSnapshot?.totalCoveredWaterCells ?? 0,
+            totalWaterCells: snap.coverageSnapshot?.totalWaterCells ?? 0,
+            },
+            qtyByBoatId: snap.qtyByBoatId,
+            boats: BOATS.map((b) => ({ id: b.id, name: b.name })),
+        };
+
+        navigate("/results", { state: { run } });
     }, []);
+
+
+    const latestRef = useRef(null);
+
+    // keep latest values in a ref so onEnd can read them without deps
+    useEffect(() => {
+    latestRef.current = {
+        totalCost,
+        totalShips,
+        ships,
+        coverageSummary,
+        coverageSnapshot,
+        qtyByBoatId,
+    };
+    }, [totalCost, totalShips, ships, coverageSummary, coverageSnapshot, qtyByBoatId]);
+
 
     // Render
     return (

@@ -2,7 +2,7 @@ import bgImage from '../../assets/images/main-bg.png';
 import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { MOCK_HISTORY } from './mockDB';
-import {Link} from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
 import { FaPlay } from "react-icons/fa";
 import { MdHistory } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
@@ -19,20 +19,44 @@ export default function Results() {
         scaled_coverage: (run.avgCoveragePercent / 100) * max_cost // Scaling coverage to max cost
     }));
 
-    console.log("[DEBUG] Graph Data:", graphData);
+    const { state } = useLocation();
+    const run = state?.run ?? null;
 
-    const coverage_stats = [
-        { id: 1, name: 'Average Coverage', value: '73%' },
-        { id: 2, name: 'Total Coverage', value: '98%' },
-        { id: 3, name: 'Min Coverage', value: '30%' },
-        { id: 4, name: 'Max Coverage', value: '100%' },
+
+    const coverage_stats = run
+  ? [
+      { id: 1, name: "Average Coverage", value: `${run.coverage.avg.toFixed(1)}%` },
+      { id: 2, name: "Total Coverage", value: `${run.coverage.total.toFixed(1)}%` },
+      { id: 3, name: "Min Coverage", value: `${run.coverage.min.toFixed(1)}%` },
+      { id: 4, name: "Max Coverage", value: `${run.coverage.max.toFixed(1)}%` },
+    ]
+  : [
+      { id: 1, name: "Average Coverage", value: "—" },
+      { id: 2, name: "Total Coverage", value: "—" },
+      { id: 3, name: "Min Coverage", value: "—" },
+      { id: 4, name: "Max Coverage", value: "—" },
     ];
 
-    const cost_stats = [
-        { id: 4, name: 'Total Money Spent', value: '$1,000,000' }, 
-        { id: 5, name: 'Ships Purchased', value: '5' },
-        { id: 6, name: 'Favorite Ship', value: 'Kingston' },
-        { id: 7, name: 'Least Favorite Ship', value: 'Halifax' },
+    const mostUsedBoatId = run
+  ? Object.entries(run.qtyByBoatId).sort((a, b) => b[1] - a[1])[0]?.[0]
+  : null;
+
+const boatNameById = run
+  ? Object.fromEntries(run.boats.map((b) => [b.id, b.name]))
+  : {};
+
+const cost_stats = run
+  ? [
+      { id: 4, name: "Total Money Spent", value: `$${run.totalCost.toLocaleString()}` },
+      { id: 5, name: "Ships Purchased", value: String(run.totalShips) },
+      { id: 6, name: "Most Used Ship", value: mostUsedBoatId ? boatNameById[mostUsedBoatId] : "—" },
+      { id: 7, name: "Total Route Points", value: String(run.totalRoutePoints) },
+    ]
+  : [
+      { id: 4, name: "Total Money Spent", value: "—" },
+      { id: 5, name: "Ships Purchased", value: "—" },
+      { id: 6, name: "Most Used Ship", value: "—" },
+      { id: 7, name: "Total Route Points", value: "—" },
     ];
 
     return (
