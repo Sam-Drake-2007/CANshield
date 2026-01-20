@@ -2,6 +2,9 @@
 
 > **Thales Challenge Submission** > An Arctic passageway defense simulator designed with RTS gameplay mechanics.
 
+## 🏆 Awards
+Third place prize winner of the Thales: Northern Shield, Maritime Strategy Simulator Challenge.
+
 ## 🎬 Demo Video
 [![Watch the video](https://img.youtube.com/vi/FiWHdm8gHqw/maxresdefault.jpg)](https://youtu.be/FiWHdm8gHqw)
 
