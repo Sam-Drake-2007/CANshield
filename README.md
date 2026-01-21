@@ -3,7 +3,7 @@
 > **Thales Challenge Submission** > An Arctic passageway defense simulator designed with RTS gameplay mechanics.
 
 ## 🏆 Awards
-Third place prize winner of the Thales: Northern Shield, Maritime Strategy Simulator Challenge.
+Third place prize winner of the Thales: Northern Shield, Maritime Strategy Simulator Challenge at uOttaHack 8. ([Link to DevPost](https://devpost.com/software/canshield))
 
 ## 🎬 Demo Video
 [![Watch the video](https://img.youtube.com/vi/FiWHdm8gHqw/maxresdefault.jpg)](https://youtu.be/FiWHdm8gHqw)
