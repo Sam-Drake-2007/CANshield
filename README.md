@@ -72,7 +72,7 @@ To run CANshield locally, follow these steps:
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/your-username/CANshield.git
+    git clone https://github.com/Sam-Drake-2007/CANshield.git
     cd CANshield
     ```
 
