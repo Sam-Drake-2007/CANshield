@@ -42,13 +42,12 @@ import {
 import { useUserContext } from "../../contexts/UserContextProvider.jsx";
 import createOperation from "../../services/createOperation.js";
 
-// ✅ Keep these here
 export const ARCTIC_BOUNDS = [
   [73.87565, -104.19434], // SW
   [76.49101, -87.63794], // NE
 ];
 
-// ✅ Fallback boats (in case API is down)
+// Fallback boats (in case API is down)
 export const BOATS_FALLBACK = [
   {
     id: "halifax",
